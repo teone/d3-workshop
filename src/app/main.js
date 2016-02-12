@@ -7,7 +7,7 @@ const handleP = () => {
   .attr({
     class: 'bar'
   })
-  .style('width', d => `${d * 10}px`)
+  .style('width', d => `${d}%`)
   .text(d => `${d}%`);
 }
 
