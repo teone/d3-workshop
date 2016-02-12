@@ -1,1 +1,11 @@
 @import '../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+.chart {
+  margin-left: 10px;
+  .bar {
+    background: $brand-primary;
+    color: #fff;
+    margin-top: 2px;
+    padding: 4px;
+  }
+}

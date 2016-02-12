@@ -15,7 +15,7 @@
         //"angular"
     ],
     "rules": {
-        "quotes": [2, "single"],
+        "quotes": [0, "double"],
         "camelcase": [0, {"properties": "always"}],
         "no-underscore-dangle": 1,
         "eqeqeq": [2, "smart"],
@@ -32,6 +32,7 @@
         "no-undef": 2,
     },
     "globals" :{
-        "angular": true
+        "d3": true,
+        "$": true
     }
 }
