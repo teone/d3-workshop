@@ -1,43 +1,29 @@
 'use strict';
 
-var data = [3, 7, 21, 31, 35, 42];
+const data = [3, 7, 21, 31, 35, 42, 66, 72];
 
-var duration = 3000;
+const color = d3.scale.category20c();
 
-const update = data => {
+const update = () => {
+  const width = $('.container').width();
 
-  let el = d3.select(".chart").selectAll("div").data(data);
+  const xScale = d3.scale.linear().domain([0, d3.max(data)]).range([0, width]);
 
-  el.enter().append("div").attr({
-    class: 'bar'
-  }).style({
-    width: '0px'
-  });
+  const container = d3.select('.chart');
 
-  el.exit().transition().duration(duration).style({
-    width: '0px'
-  }).remove();
+  const els = container.selectAll('div').data(data);
 
-  el.transition().duration(duration).style({
-    width: d => `${ d * 10 }px`
-  }).text(d => `${ d }%`);
+  els.enter().append('div');
+
+  els.style({
+    width: d => `${ xScale(d) }px`,
+    height: '20px',
+    'background-color': (d, i) => color(i)
+  }).text(d => d);
 };
 
-update(data);
+update();
 
-$(document).ready(() => {
-  $('#addBtn').click(() => {
-    data.push(Math.round(Math.random() * 50));
-    update(data);
-  });
-
-  $('#rmBtn').click(() => {
-    data.splice(data.length - 1, 1);
-    update(data);
-  });
-
-  $('#rvBtn').click(() => {
-    data = data.reverse();
-    update(data);
-  });
+$(window).resize(() => {
+  update();
 });
