@@ -1,6 +1,8 @@
 'use strict';
 
-const data = [3, 7, 21, 31, 35, 42, 66, 72];
+const data = [3, 7, 21, 36, 42];
+
+console.log(d3.sum(data));
 
 const color = d3.scale.category20c();
 
@@ -17,6 +19,22 @@ const update = () => {
 
   els.style({
     width: d => `${ xScale(d) }px`,
+    height: '20px',
+    'background-color': (d, i) => color(i)
+  }).text(d => d);
+
+  const xPartial = d3.scale.linear().domain([0, d3.sum(data)]).range([0, width]);
+
+  const bcontainer = d3.select('.bar');
+
+  const bels = bcontainer.selectAll('div').data(data);
+
+  bels.enter().append('div').style({
+    float: 'left'
+  });
+
+  bels.style({
+    width: d => `${ Math.floor(xPartial(d)) }px`,
     height: '20px',
     'background-color': (d, i) => color(i)
   }).text(d => d);
