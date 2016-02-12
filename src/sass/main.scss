@@ -5,7 +5,10 @@
     background: $brand-primary;
     color: #fff;
     margin-top: 2px;
-    padding: 4px;
     text-align: right;
   }
+}
+
+.chart + .row {
+  margin-top: 20px
 }
