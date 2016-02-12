@@ -1,0 +1,21 @@
+{
+  "name": "D3 Workshop",
+  "description": "D3 Workshop",
+  "main": "index.js",
+  "authors": [
+    "Matteo Scandolo"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "d3": "~3.5.14"
+  }
+}
