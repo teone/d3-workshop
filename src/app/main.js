@@ -2,8 +2,6 @@
 
 const data = [3, 7, 21, 36, 42];
 
-console.log(d3.sum(data));
-
 const color = d3.scale.category20c();
 
 const update = () => {
