@@ -2,7 +2,7 @@
 
 var data = [3, 7, 21, 31, 35, 42];
 
-var duration = 3000;
+var duration = 1000;
 
 const update = (data) => {
 
@@ -23,6 +23,7 @@ const update = (data) => {
   .exit()
   .transition()
   .duration(duration)
+  .ease('bounce')
   .style({
     width: '0px'
   })
@@ -31,6 +32,7 @@ const update = (data) => {
   el
   .transition()
   .duration(duration)
+  .ease('bounce')
   .style({
     width: d => `${d * 10}px`
   })

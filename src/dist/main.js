@@ -2,7 +2,7 @@
 
 var data = [3, 7, 21, 31, 35, 42];
 
-var duration = 3000;
+var duration = 1000;
 
 const update = data => {
 
@@ -14,11 +14,11 @@ const update = data => {
     width: '0px'
   });
 
-  el.exit().transition().duration(duration).style({
+  el.exit().transition().duration(duration).ease('bounce').style({
     width: '0px'
   }).remove();
 
-  el.transition().duration(duration).style({
+  el.transition().duration(duration).ease('bounce').style({
     width: d => `${ d * 10 }px`
   }).text(d => `${ d }%`);
 };
